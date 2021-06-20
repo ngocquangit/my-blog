@@ -1,6 +1,7 @@
 .post{
     width:  385px;
     margin: 0 25px 40px 25px;
+    min-height: 470px;
 }
 .post__img{
     width: 100%;

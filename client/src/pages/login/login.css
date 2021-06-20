@@ -44,7 +44,7 @@
   .login__Button {
     margin-top: 20px;
     cursor: pointer;
-    background-color: lightcoral;
+    background-color: rgb(240, 128, 128);
     color: white;
     padding: 10px;
     border: none;
@@ -52,7 +52,10 @@
     text-align: center;
     font-size: 16px;
   }
-  
+  .login__Button:disabled{
+    cursor: not-allowed;
+    border-color: rgb(226, 118, 118);
+  }
   .login__RegisterButton {
     position: absolute;
     top: 60px;

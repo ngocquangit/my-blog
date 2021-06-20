@@ -10,6 +10,7 @@ const Slidebar = () => {
             setCat(res.data)
         }
         getCategories();
+        window.scrollTo(0, 0)
     },[])
     return (
         <div className="Slidebar">

@@ -3,9 +3,16 @@ import './topbar.css';
 import {
     Link
   } from "react-router-dom";
+import { useContext } from 'react';
+import { Context } from '../../context/context';
 
 const TopBar = () => {
-    const user = true;
+    const {user,dispatch} = useContext(Context);
+    const PF = "http://localhost:5000/images/"
+    const handleLogout =()=> {
+        dispatch({type:"LOGOUT"})
+    }
+    
     return (
         <div className="topbar">
            <div className="topLeft">
@@ -20,12 +27,15 @@ const TopBar = () => {
                    <li className="topList__item"><Link to="/">Về tôi</Link></li>
                    <li className="topList__item"><Link to="/">Liên hệ</Link></li>
                    <li className="topList__item">{user &&<Link to="/write">Viết bài</Link>}</li>
-                   <li className="topList__item">{user && "Đăng xuất"}</li>
+                   <li className="topList__item" onClick={handleLogout}>{user && "Đăng xuất"}</li>
                </ul>
            </div>
            <div className="topRight">
                {user ? 
-               (<img className="topImg" src="https://picsum.photos/300/300" alt="" srcSet="" />)
+               (
+               <Link to="/setting">
+               <img className="topImg" src={ user.profilePic !== "" ? PF + user.profilePic : "https://picsum.photos/300/300"} alt="" srcSet="" />
+                </Link>)
                 :
                 (
                 <>

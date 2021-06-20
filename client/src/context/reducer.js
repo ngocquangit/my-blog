@@ -18,7 +18,29 @@ const Reducer = (state,action)=> {
                 isFetching : false,
                 error: true 
             }
-    
+        case "LOGOUT":
+            return{
+                user: null,
+                isFetching : false,
+                error: false 
+            }
+            case "UPDATE_START":
+                return{
+                   ...state,
+                   isFetching: true
+                }
+            case "UPDATE_SUCCESS":
+                return{
+                    user: state.user,
+                    isFetching : false,
+                    error: false 
+                }
+            case "UPDATE_FAILURE":
+                return{
+                    user: null,
+                    isFetching : false,
+                    error: true 
+                }
         default:
             return state;
     }

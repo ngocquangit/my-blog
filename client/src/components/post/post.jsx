@@ -2,16 +2,18 @@ import React from 'react';
 import './post.css';
 import {Link} from 'react-router-dom'
 const post = ({post}) => {
+    const pic = "http://localhost:5000/images/"
     return (
         <div className="post">
-            {post.photo && 
-                <img className="post__img" src={post.photo} alt="" srcSet="" />
+            {post.photo ? 
+                <img className="post__img" src={pic+ post.photo} alt="" srcSet="" />
+                :
+                <img className="post__img" src="https://picsum.photos/900/400" alt="" srcSet="" />
+                
             }
             <div className="post__Info">
                 <div className="post__Cats">
-                    {post.categories.map(c =>(
-                        <span className="post__Cat">{c.name}</span>
-                    ))}
+                    {post.categories}
                 </div>
                 <Link className="post__Title" to={`/post/${post._id}`}>
                 <span>
