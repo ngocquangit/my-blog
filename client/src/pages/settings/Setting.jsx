@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Setting.css'
 import Slidebar from '../../components/slidebar/Slidebar'
 import { Context } from '../../context/context';
@@ -43,16 +43,6 @@ const Setting = () => {
             dispatch({type:"UPDATE_FAILURE"})
         } 
     }
-    // useEffect(() =>{
-    //     const getPost = async() => {
-    //         const res = await axios.get("/users/" + user._id );
-    //         setUsername(res.data.username);
-    //         setEmail(res.data.email);
-    //         setPassword(res.data.password);
-    //         setRepassword(res.data.repassword)
-    //     }
-    //     getPost();
-    // },[])
     return (
         <div className="setting">
             <div className="setting__wrapper">
